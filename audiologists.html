@@ -82,37 +82,47 @@
                 <ol class="breadcrumb" style="background: #fefefe">
                     <li><a href="index.html">Home</a>
                     </li>
-                    <li class="active">About us</li>
+                    <li class="active">Audiologists</li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
 
         <!-- Intro Content -->
-        <div class="row">
+        <div class="row" id="introAudiologists">
             <div class="col-md-4">
                 <img class="img-responsive" src="http://www.globalhearing.com.au/userfiles/images/Otoscope-Unitron.jpg" alt="">
+                <br/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="breadcrumb" style="background: #fefefe">
+                    <form name="loginForm" id="contactForm" novalidate>
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Enter your zipcode:</label>
+                                    <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your zipcode.">
+                                </div>
+                            </div>
+                            
+                            <div id="success"></div>
+                            <!-- For success/fail messages -->
+                            <!-- <hr /> -->
+                            <button type="button" class="btn btn-success btn-block" id="submitZipBtn">Submit</a>
+                </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-8">
                 <!-- <h2>Find a hearing professional near you</h2> -->
-                <p>If your results suggest you may have hearing loss, it is recommended that you schedule an appointment with your local audiologist for an in-depth screening test. An audiologist is a healthcare professional focused on hearing disorders. An audiologist provides professional and personalized care to minimize the impact of hearing loss, leading to an improved quality of life. </p>
-                <p>To find information on audiologists near you, enter your zipcode in the space below. </p>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb" style="background: #fefefe">
-                    Enter your zipcode:
-                </div>
+                <p>If your results suggest you may have hearing loss, it is recommended that you schedule an appointment with your local audiologist for an in-depth screening test. The hearing test provided on this website is a screening only.</p>
+                <p>An audiologist is a healthcare professional focused on hearing disorders. An audiologist provides professional and personalized care to minimize the impact of hearing loss, leading to an improved quality of life. </p>
+                <p>To find information on audiologists near you, enter your zipcode in the space provided. </p>
             </div>
         </div>
         <!-- /.row -->
 
         <!-- Team Members -->
-        <div class="row">
+        <div class="row" style="display: none;" id="audioResZip">
             <div class="col-lg-12">
                 <h2 class="page-header">Results <small>near 30318</small></h2>
             </div>
@@ -302,6 +312,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+
+    <script src="js/scripts.js"></script>
 
 </body>
 
