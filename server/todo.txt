@@ -1,0 +1,5 @@
+do we need to validate since we're using AWS?
+
+bcrypt password
+
+passport w/ local strategy
