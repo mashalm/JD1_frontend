@@ -9,8 +9,8 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
   findById(id)
-    .asCallback(done)
-    .catch(done);
+    .asCallback(done);
+    // .catch(done);
 });
 
 passport.use(localStrategy);

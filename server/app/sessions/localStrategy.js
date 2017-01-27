@@ -1,6 +1,6 @@
 var
   Promise = require('bluebird'),
-  findByEmail = require('./users').findByEmail,
+  findByEmail = require('../users').findByEmail,
   bcrypt = require('bcrypt'),
   compare = Promise.promisify(bcrypt.compare),
   LocalStrategy = require('passport-local').Strategy

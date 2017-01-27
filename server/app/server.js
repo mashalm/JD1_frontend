@@ -2,7 +2,7 @@ var
   app = require('express')(),
   bodyparser = require('body-parser'),
   session = require('express-session'),
-  userRoutes = require('./users'),
+  userRoutes = require('./users').routes,
   passport = require('./sessions');
 
 app

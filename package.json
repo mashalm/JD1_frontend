@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/mashalm/jd1_frontend#readme",
   "dependencies": {
+    "aws-sdk": "^2.9.0",
     "bcrypt": "^1.0.2",
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",

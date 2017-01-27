@@ -1,7 +1,7 @@
 var
-  // register = require('./register'),
+  register = require('./register'),
   // login = require('./login'),
-  uuid = require('uuid/v4'),
+  validation = require('./validation'),
   router = require('express').Router(),
   passport = require('passport');
 
@@ -12,10 +12,14 @@ router.get('/logout', function(req, res) {
   res.status(200).send();
 });
 
-router.post('/register', function(req, res) {
-  // var id = uuid();
-  // console.log('id: ', id);
-  // res.status(200).send(req.body);
+router.post('/register', validation, function(req, res) {
+  register(req.userdata)
+    .then(function(user) {
+      req.login(user, function(err) {
+        if (err)
+          console.log('err: ', err);
+      })
+    })
 });
 
 module.exports = router;
