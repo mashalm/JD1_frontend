@@ -1,9 +1,19 @@
 var
   app = require('express')(),
-  bodyParser = require('body-parse'),
-  userRoutes = require('./users');
+  bodyparser = require('body-parser'),
+  session = require('express-session'),
+  userRoutes = require('./users'),
+  passport = require('./sessions');
 
-app.use(bodyParser.json())
+app
+  .use(bodyparser.urlencoded({ extended: false }))
+  .use(session({
+    secret: 'tmp',
+    resave: false,
+    saveUninitialized: false
+  }))
+  .use(passport.initialize())
+  .use(passport.session());
 
 app.use('/users', userRoutes);
 
