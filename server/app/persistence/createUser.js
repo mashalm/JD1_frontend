@@ -9,7 +9,7 @@ var createUser = function createUser(userdata) {
     id: {S: userdata.id}
   };
 
-  console.log('sending dynamo request');
+  console.log('item: ', item);
 
   return db
     .putItem({
@@ -18,7 +18,11 @@ var createUser = function createUser(userdata) {
     })
     .promise()
     .then(function(response) {
-      console.log('dynamo response: ', response);
+      return userdata;
+    })
+    .catch(function(err) {
+      console.log('dynamo err: ', err);
+      throw err;
     });
 };
 

@@ -1,4 +1,4 @@
-var validation = function(req, res, next) {
+var validate = function(req, res, next) {
   var userdata = {
     email: req.body.email,
     password: req.body.password
@@ -8,4 +8,4 @@ var validation = function(req, res, next) {
   next();
 }
 
-module.exports = validation;
+module.exports = validate;
