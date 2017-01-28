@@ -13,6 +13,12 @@ var register = function(userdata) {
       userdata.password = password;
 
       return createUser(userdata);
+    })
+    .then(function(user) {
+      if (user.password)
+        delete user.password;
+
+      return user;
     });
 };
 

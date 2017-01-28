@@ -24,7 +24,7 @@ var localStrategy = new LocalStrategy({usernameField:"email"}, function(email, p
     .catch(function(err) {
       console.log('err', err);
       throw err;
-    })
+    });
 });
 
 module.exports = localStrategy;
