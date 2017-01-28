@@ -30,4 +30,58 @@ app.get('/', function(req, res) {
   );
 });
 
+app.get('/audiologists', function(req, res) {
+  res.render(
+    join(__dirname, 'views/audiologists')
+  );
+});
+
+app.get('/disclaimer', function(req, res) {
+  res.render(
+    join(__dirname, 'views/disclaimer')
+  );
+});
+
+app.get('/forgotpassword', function(req, res) {
+  res.render(
+    join(__dirname, 'views/forgotpassword')
+  );
+});
+
+app.get('/forgotpassword1', function(req, res) {
+  res.render(
+    join(__dirname, 'views/forgotpassword1')
+  );
+});
+
+app.get('/results', function(req, res) {
+  res.render(
+    join(__dirname, 'views/results')
+  );
+});
+
+app.get('/hearingtest', function(req, res) {
+  res.render(
+    join(__dirname, 'views/hearingtest')
+  );
+});
+
+app.get('/howitworks', function(req, res) {
+  res.render(
+    join(__dirname, 'views/howitworks')
+  );
+});
+
+app.get('/puretonetest', function(req, res) {
+  res.render(
+    join(__dirname, 'views/puretonetest')
+  );
+});
+
+app.get('/pastscores', function(req, res) {
+  res.render(
+    join(__dirname, 'views/pastscores')
+  );
+});
+
 app.listen(3000);

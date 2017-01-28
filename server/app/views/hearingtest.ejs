@@ -32,7 +32,7 @@
 
 </head>
 
-<body  style="background: #f0f8ff;">
+<body style="background: #f0f8ff;">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -45,24 +45,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Hearing Test</a>
+                <a class="navbar-brand" href="/">Hearing Test</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="howitworks.html">How It Works</a>
+                        <a href="howitworks">How It Works</a>
                     </li>
                     <li>
-                        <a href="disclaimer.html">Disclaimer</a>
+                        <a href="disclaimer">Disclaimer</a>
                     </li>
                     <li>
-                        <a href="audiologists.html">Find Audiologists</a>
+                        <a href="audiologists">Find Audiologists</a>
                     </li>
                     <li>
-                    <a href="login.html" class="btn btn-success" id="loginButton">Login</a>
+                    <a href="/users/login" class="btn btn-success" id="loginButton">Login</a>
                     </li>
-                    
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -76,74 +76,65 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header" id="puretonepageH1">Instructions
-                    <!-- <small>import Teamname</small> -->
+                <h1 class="page-header">Hearing Test
                 </h1>
                 <ol class="breadcrumb" style="background: #fefefe">
-                    <li><a href="index.html">Home</a>
+                    <li><a href="/">Home</a>
                     </li>
-                    <li><a href="hearingtest.html">Choose Test</a></li>
-                    <li class="active">Pure-tone Test</li>
+                    <li class="active">Choose Test</li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
 
-        <!-- Intro Content -->
-        <div id="introPureTone">
-        <div class="row">
-            <div class="col-md-3">
-                <!-- <a href="login.html" class="btn btn-block btn-primary" id="startpuretone">Start Test</a>
-                -->
+        <!-- Image Header -->
+<!--         <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="http://placehold.it/1200x300" alt="">
             </div>
-            <div class="col-md-12">
-                <!-- <h2>Find a hearing professional near you</h2> -->
-                <p>Make sure your headphones are properly plugged in and the volume is at a comfortable level. Please ensure you are in a quiet environment. This test consists of sounds that will be played at various frequencies. You will be asked to indicate when you hear a sound by clicking a button.</p>
-                <p>When you are ready to begin the test, click the start test button below.</p>
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <button type="button" class="btn btn-primary btn-block" id="startpuretone">Start Test</button>
-                
-            </div>
-            
-        </div>
+        </div> -->
         <!-- /.row -->
-        </div><!--intro -->
 
-        <div id="puretonetest" style="display:none;">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="media">
-                    <div class="text-center">
+        <div class="row">
+<!--             <div class="col-lg-12">
+                <h2 class="page-header">Choose Headphones or Speakers</h2>
+            </div> -->
+            <div class="col-md-3 col-sm-6 col-md-offset-3">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
                         <span class="fa-stack fa-5x">
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                              <i class="fa fa-volume-up fa-stack-1x fa-inverse"></i>
-                        </span> 
+                              <i class="fa fa-headphones fa-stack-1x fa-inverse"></i>
+                        </span>
                     </div>
+                    <div class="panel-body">
+                        <!-- <h4>Headphones</h4> -->
+                        <p>Make sure your headphones are plugged in and place them securely over your ears.</p>
+                        <a href="puretonetest" class="btn btn-primary">Headphones</a>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <!-- <h2>Find a hearing professional near you</h2> -->
-                    <p>If you hear a tone being played, press the "Hear Sound" button below. Otherwise, do not press anything. The test will complete automatically.</p>
-                    <a href="results.html" class="btn btn-primary">Hear Sound</a>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading">
+                        <span class="fa-stack fa-5x">
+                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                              <i class="fa fa-bullhorn fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <!-- <h4>Speakers</h4> -->
+                        <p>To use the speakers on your computer, make sure the volume on your device is not muted.</p>
+                        <a href="speechtest" class="btn btn-primary">Speakers</a>
+                    </div>
+                </div>
+            </div>
 
-                </div>
-            </div>
-            <div class="row">
-            <BR><BR><BR>
-                <div class="progress">
-                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                        80%
-                      </div>
-                    </div>
-            </div>
         </div>
 
-        
+        <!-- Service List -->
+        <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+
         <hr>
 
          <!-- Footer -->
@@ -163,9 +154,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- custom scripts -->
-    <script src="js/scripts.js"></script>
 
 </body>
 
