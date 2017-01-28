@@ -9,8 +9,6 @@ var createUser = function createUser(userdata) {
     id: {S: userdata.id}
   };
 
-  console.log('item: ', item);
-
   return db
     .putItem({
       TableName: table,

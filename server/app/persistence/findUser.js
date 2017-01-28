@@ -1,11 +1,14 @@
 var
   db = require('./connection'),
+  attr = require('dynamodb-data-types').AttributeValue,
   table = 'users';
 
 var findUserById = function(id) {
   var query = {
     TableName: table,
-    Key: {S: id}
+    Key: {
+      id: {S: id}
+    }
   };
 
   return db
@@ -20,11 +23,6 @@ var findUserById = function(id) {
       throw err;
     });
 };
-
-// var findUserById = function(id) {
-//   console.log('executing find by id');
-//   return findUser('id', id);
-// }
 
 var findUserByEmail = function(email) {
   console.log('executing find by email');
@@ -41,7 +39,10 @@ var findUserByEmail = function(email) {
     .promise()
     .then(function(response) {
       console.log('response: ', response);
-      return response;
+      if (response.Count === 1)
+        return attr.unwrap(response.Items[0]);
+
+      else throw new Error('multiple users have the same email');
     })
     .catch(function(err) {
       console.log('err', err);

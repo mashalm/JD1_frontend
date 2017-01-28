@@ -6,15 +6,17 @@ var
   LocalStrategy = require('passport-local').Strategy;
 
 var localStrategy = new LocalStrategy({usernameField:"email"}, function(email, password, done) {
-  console.log('executing local strategy');
+
   findUserByEmail(email)
     .then(function(user) {
-      console.log('found user: ', user);
-      return compare(password, user.password);
+      return {
+        user: user,
+        match: compare(password, user.password)
+      };
     })
-    .then(function(match) {
-      if (match)
-        return this.user;
+    .then(function(result) {
+      if (result.match)
+        return result.user;
 
       return null;
     })
