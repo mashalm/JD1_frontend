@@ -125,33 +125,33 @@
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label>Email Address:</label>
-                                    <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <input type="email" class="form-control" id="emailSignUp" required data-validation-required-message="Please enter your email address.">
                                 </div>
                             </div>
 
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label>Password:</label>
-                                    <input type="password" class="form-control" id="password" required data-validation-required-message="Please check your password and try again.">
+                                    <input type="password" class="form-control" id="passwordSignUp" required data-validation-required-message="Please check your password and try again.">
                                 </div>
                             </div>
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label>Re-type Password:</label>
-                                    <input type="password" class="form-control" id="confirmPassword" required data-validation-required-message="Please check your password and try again." data-match="#password">
+                                    <input type="password" class="form-control" id="confirmPasswordSignUp" required data-validation-required-message="Please check your password and try again." data-match="#password">
                                 </div>
                             </div>
                             <hr style="margin-bottom: 25px" />
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label>Security Question:</label>
-                                    <input type="text" class="form-control" id="securityQuestion" required data-validation-required-message="Please check your password and try again." data-match="#password">
+                                    <input type="text" class="form-control" id="securityQuestionSignUp" required data-validation-required-message="Please check your password and try again." data-match="#password">
                                 </div>
                             </div>
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label>Security Answer:</label>
-                                    <input type="text" class="form-control" id="securityAnswer" required data-validation-required-message="Please check your password and try again." data-match="#password">
+                                    <input type="text" class="form-control" id="securityAnswerSignUp" required data-validation-required-message="Please check your password and try again." data-match="#password">
                                 </div>
                             </div>
 
@@ -160,7 +160,7 @@
                             <!-- For success/fail messages -->
                             <!-- <button type="submit" class="btn btn-primary" id="loggedin">Login</button> -->
                             <!-- <hr /> -->
-                            <button type="submit" formaction="login.html" class="btn btn-success btn-block">Sign up</button>
+                            <button type="submit" class="btn btn-success btn-block" id="signUpButton">Sign up</button>
                         </form>
                     </div>
                 </div>
