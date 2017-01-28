@@ -1,0 +1,17 @@
+user: {
+  id: String,
+  facebook_id: String
+  email: String,
+  password: String,
+  security_question: Enum of Strings,
+  security_answer: String,
+  dob: Date,
+  tests: Array of tests
+}
+
+test: {
+  id: String,
+  score: Number,
+  time_started: Date (timestamp),
+  time_completed: Date (timestamp),
+}
