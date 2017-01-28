@@ -23,12 +23,13 @@ $('#submitZipBtn').click(function() {
 });
 
 $('#signUpButton').click(function() {
+    //we'll want to validate the form entry when clicked
     var signUpData = {
         'id' : generateUniqueId(),
         'facebook_id': "000",
         'email' : $('#emailSignUp').val(),
         'password' : $('#passwordSignUp').val(),
-        'security_question' : $('#passwordSignUp').val(),
+        'security_question' : $('#securityQuestionSignUp').val(),
         'security_answer': $('securityAnswerSignUp').val(),
         'dob' : 01-01-1965,
         'tests' : null
@@ -45,3 +46,10 @@ $('#signUpButton').click(function() {
         
     });
 });
+
+function generateUniqueId() {
+    //get epoch of this current second
+    var millis = (new Date).getTime();
+    var uniqueId = millis + Math.floor(Math.random() * 26);
+    return uniqueId;
+}
