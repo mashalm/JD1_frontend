@@ -2,8 +2,12 @@ var
   join = require('path').join,
   register = require('./register'),
   validate = require('./validate'),
+  forgotpassword = require('./forgotpassword'),
+  changePassword = require('./changePassword'),
+  findByEmail = require('./findByEmail'),
   router = require('express').Router(),
-  passport = require('passport');
+  passport = require('passport'),
+  queryString = require('query-string');
 
 router
   .route('/login')
@@ -54,5 +58,84 @@ router
         });
       });
   });
+
+router
+  .route('/forgotpassword')
+  .get(function(req, res) {
+    res.render(
+      join(__dirname, '../views/forgotpassword')
+    );
+  })
+  .post(function(req, res) {
+    var email = req.body.email;
+    forgotpassword(email)
+      .then(function(question) {
+        question['email'] = email; // TODO clean
+        var qs = queryString.stringify(question);
+
+        console.log('query string: ', qs);
+
+        res.redirect('forgotpassword1?' + qs);
+      })
+  });
+
+router
+  .route('/forgotpassword1')
+  .get(function(req, res) {
+    var email = req.query.email;
+    var question = req.query.question;
+
+    console.log('found question: ', question);
+
+    res.render(
+      join(__dirname, '../views/forgotpassword1'),
+      {
+        email: email,
+        question: question
+      }
+    );
+  })
+  .post(function(req, res) {
+    var email = req.body.email;
+    var answer = req.body.answer;
+
+    console.log('forgotpassword1 email: ', email);
+    console.log('forgotpassword1 answer: ', answer);
+
+    findByEmail(email)
+      .then(function(user) {
+        console.log('comparing user.security_answer = ', user.security_answer, ' and answer = ', answer);
+
+        if (user.security_answer === answer) {
+          var qs = queryString.stringify({userId: user.id});
+          res.redirect('/changepassword', qs);
+        }
+
+        else {
+          console.log('failed to change password');
+          res.redirect('/');
+        }
+      })
+  });
+
+router
+  .route('/changepassword')
+  .get(function(req, res) {
+    var id = req.query.userId;
+
+    res.render(
+      join(__dirname, '../views/changepassword'),
+      {userId: id}
+    )
+  })
+  .post(function(req, res) {
+    var newPassword = req.body.password;
+    var userId = req.body.userId;
+
+    changePassword(userId, newPassword)
+      .then(function() {
+        console.log('password changed successfully');
+      })
+  })
 
 module.exports = router;

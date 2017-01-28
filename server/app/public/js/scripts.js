@@ -28,7 +28,7 @@ $('#signUpButton').click(function() {
         'email' : $('#emailSignUp').val(),
         'password' : $('#passwordSignUp').val(),
         'security_question' : $('#securityQuestionSignUp').val(),
-        'security_answer': $('securityAnswerSignUp').val(),
+        'security_answer': $('#securityAnswerSignUp').val(),
         'dob' : 01-01-1965,
         'tests' : null
     };

@@ -42,18 +42,6 @@ app.get('/disclaimer', function(req, res) {
   );
 });
 
-app.get('/forgotpassword', function(req, res) {
-  res.render(
-    join(__dirname, 'views/forgotpassword')
-  );
-});
-
-app.get('/forgotpassword1', function(req, res) {
-  res.render(
-    join(__dirname, 'views/forgotpassword1')
-  );
-});
-
 app.get('/results', function(req, res) {
   res.render(
     join(__dirname, 'views/results')
