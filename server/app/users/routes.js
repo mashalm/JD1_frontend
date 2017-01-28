@@ -73,8 +73,6 @@ router
         question['email'] = email; // TODO clean
         var qs = queryString.stringify(question);
 
-        console.log('query string: ', qs);
-
         res.redirect('forgotpassword1?' + qs);
       })
   });
@@ -84,8 +82,6 @@ router
   .get(function(req, res) {
     var email = req.query.email;
     var question = req.query.question;
-
-    console.log('found question: ', question);
 
     res.render(
       join(__dirname, '../views/forgotpassword1'),
@@ -108,7 +104,7 @@ router
 
         if (user.security_answer === answer) {
           var qs = queryString.stringify({userId: user.id});
-          res.redirect('/changepassword', qs);
+          res.redirect('changepassword?' + qs);
         }
 
         else {
@@ -131,6 +127,9 @@ router
   .post(function(req, res) {
     var newPassword = req.body.password;
     var userId = req.body.userId;
+
+    console.log('newPassword: ', newPassword);
+    console.log('userId: ', userId);
 
     changePassword(userId, newPassword)
       .then(function() {
