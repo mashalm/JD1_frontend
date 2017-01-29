@@ -95,13 +95,8 @@ router
     var email = req.body.email;
     var answer = req.body.answer;
 
-    console.log('forgotpassword1 email: ', email);
-    console.log('forgotpassword1 answer: ', answer);
-
     findByEmail(email)
       .then(function(user) {
-        console.log('comparing user.security_answer = ', user.security_answer, ' and answer = ', answer);
-
         if (user.security_answer === answer) {
           var qs = queryString.stringify({userId: user.id});
           res.redirect('changepassword?' + qs);
@@ -127,9 +122,6 @@ router
   .post(function(req, res) {
     var newPassword = req.body.password;
     var userId = req.body.userId;
-
-    console.log('newPassword: ', newPassword);
-    console.log('userId: ', userId);
 
     changePassword(userId, newPassword)
       .then(function() {

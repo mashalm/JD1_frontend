@@ -23,9 +23,6 @@ var changePassword = function(userId, password) {
       }
     })
     .promise()
-    // .then(function(response) {
-    //   return userdata;
-    // })
     .catch(function(err) {
       console.log('dynamo err: ', err);
       throw err;
