@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ssh": "ssh -i ~/importteamname.pem ubuntu@54.191.9.27",
-    "rs": "npm run run.server",
+    "start": "npm run run.server",
     "ds": "npm run debug.server",
     "run.server": "./node_modules/nodemon/bin/nodemon.js  server/app/server.js",
     "debug.server": "node --inspect server/app/server.js"
@@ -25,12 +25,16 @@
     "bcrypt": "^1.0.2",
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
+    "cors": "^2.8.1",
     "dynamodb-data-types": "^3.0.0",
+    "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-session": "^1.15.0",
+    "live-server": "^1.2.0",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "query-string": "^4.3.1",
     "uuid": "^3.0.1"
   }
 }
