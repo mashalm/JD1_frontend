@@ -15,7 +15,6 @@ var findUserById = function(id) {
     .getItem(query)
     .promise()
     .then(function(response) {
-      console.log('response: ', response);
       return response;
     })
     .catch(function(err) {
@@ -25,7 +24,6 @@ var findUserById = function(id) {
 };
 
 var findUserByEmail = function(email) {
-  console.log('executing find by email');
   var query = {
     TableName: table,
     ExpressionAttributeValues: {
@@ -38,11 +36,10 @@ var findUserByEmail = function(email) {
     .scan(query)
     .promise()
     .then(function(response) {
-      console.log('response: ', response);
       if (response.Count === 1)
         return attr.unwrap(response.Items[0]);
 
-      else throw new Error('multiple users have the same email');
+      else throw new Error('no user with that email exists');
     })
     .catch(function(err) {
       console.log('err', err);

@@ -72,4 +72,10 @@ app.get('/pastscores', function(req, res) {
   );
 });
 
+app.get('/logout', function(req, res) {
+  res.render(
+    join(__dirname, 'views/fake-logout')
+  );
+});
+
 app.listen(3000);

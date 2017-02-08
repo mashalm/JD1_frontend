@@ -29,7 +29,7 @@ $('#signUpButton').click(function() {
         'password' : $('#passwordSignUp').val(),
         'security_question' : $('#securityQuestionSignUp').val(),
         'security_answer': $('#securityAnswerSignUp').val(),
-        'dob' : 01-01-1965,
+        'dob' : 01-01-1955,
         'tests' : null
     };
 
@@ -42,6 +42,8 @@ $('#signUpButton').click(function() {
         success : function(user, status, req) {
             console.log('successfully created user!! ', user);
 						console.log('headers: ', req.getAllResponseHeaders());
+            alert("Account successfully created!")
+            window.location="/logout";
         },
 				error : function(xhr) {
 					console.log('error creating user: ', xhr);
@@ -65,3 +67,7 @@ $('#testBtn').click(function() {
 			}
 	});
 });
+//
+//$('#logoutButton').click(function() {
+//    
+//});

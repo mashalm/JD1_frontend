@@ -25,10 +25,12 @@ router
         next();
       }
     },
-    passport.authenticate('local'),
+    passport.authenticate('local', {
+      failureRedirect: '/users/login', // see text
+    }),
     function(req, res) {
       console.log('successfully logged in');
-      res.redirect('/');
+      res.redirect('/logout');
     }
   );
 
@@ -126,6 +128,7 @@ router
     changePassword(userId, newPassword)
       .then(function() {
         console.log('password changed successfully');
+        res.redirect('/');
       })
   })
 
