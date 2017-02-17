@@ -49,15 +49,15 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right" style="text-align:center">
+                <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/howitworks">How It Works</a>
+                        <a href="howitworks">How It Works</a>
                     </li>
                     <li>
-                        <a href="/disclaimer">Disclaimer</a>
+                        <a href="disclaimer">Disclaimer</a>
                     </li>
                     <li>
-                        <a href="/audiologists">Find Audiologists</a>
+                        <a href="audiologists">Find Audiologists</a>
                     </li>
                     <li>
                     <a href="/users/login" class="btn btn-success" id="loginButton">Login</a>
@@ -66,7 +66,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="full-width">Full Width Page</a>
+                                <a href="full-width.html">Full Width Page</a>
                             </li>
                             <li>
                                 <a href="sidebar.html">Sidebar Page</a>
@@ -114,79 +114,46 @@
 
         <!-- Marketing Icons Section -->
         <div class="row">
-            <hr />
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-sign-in"></i> Login</h4>
-                    </div>
-                    <div class="panel-body">
-                        <form name="loginForm" id="contactForm" action="/users/login" method="POST">
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                    <label>Email Address:</label>
-                                    <input type="email" name="email" class="form-control" id="emailLogin" required data-validation-required-message="Please enter your email address.">
-                                </div>
-                            </div>
-
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                    <label>Password:</label>
-                                    <input type="password" name="password" class="form-control" id="passwordLogin" required data-validation-required-message="Please check your password and try again.">
-                                    
-                                </div>
-                            </div>
-
-                            <div id="success"></div>
-                            <!-- For success/fail messages -->
-                            <!-- <button type="submit" class="btn btn-primary" id="loggedin">Login</button> -->
-                            <div class="text-center" style="margin-bottom: 15px">
-                            <a href="forgotpassword">Forgot Password?</a>
-                            </div>
-                            <!-- <hr /> -->
-                            <button type="submit" class="btn btn-success btn-block" id="loginSubmit">Login</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="text-center">
-                Don't have an account with us yet? <a href="register">Sign up now!</a>
-                </div>
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Check Your Headphones
+                </h1>
             </div>
-<!--             <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-line-chart"></i> Create an Account</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>By signing up for an account, you can save your hearing test results so that they may be viewed later. After taking multiple tests you can track your changes in hearing over time.
-                        If you have already created an account, press login above. Otherwise, press sign up below.
-                        </p>
-                        <a href="#" class="btn btn-primary">Sign Up</a>
-                    </div>
-                </div>
-            </div> -->
         </div> <!-- /.row -->
-
-
-
-     <!-- Call to Action Section -->
-<!--         <div class="well" style="background: #fff;">
+        <!-- Call to Action Section -->
+        <div class="well" style="background: #fff;">
             <div class="row">
-                <div class="col-md-8">
-                    <p>Do you suspect that you suffer from hearing loss? Make an appointment with your local audiologist or hearing care professional.</p>
+                <div class="col-md-12">
+                    <p>Before we proceed with the test, you will want to check to see if your headphones work. To do so, we will play a short sound. First, however, please ensure the following is done:</p>
+                    <ul>
+                        <li>Your headphones are properly plugged in and connected to your computer</li>
+                        <li>The volume on your computer is NOT muted or turned all the way down</li>
+                        <li>Your headphones are placed securely in/over your ears</li>
+                    </ul>
+                    Once you have double-checked that the above steps are complete, press next to begin testing your headphones. You will hear a sound playing and will be asked to adjust the volume.
+                    
                 </div>
-                <div class="col-md-4">
-                    <a class="btn btn-lg btn-success btn-block" href="audiologists.html">Find an Audiologist</a>
+
+            </div>
+            <div class="row" id="calibrateButtonContainer">
+                <div class="col-md-offset-9 col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" id="calibrationStartButton">Next</a>
                 </div>
             </div>
-        </div> -->
+            
+            <div class="row">
+                <div class="col-md-12" id="calibrateContainer">
+                    
+                </div>
+            </div>
+        </div>
 
         <hr>
 
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12" style="text-align:center">
+                <div class="col-lg-12">
                     <p>Copyright &copy; import Teamname 2016</p>
                 </div>
             </div>
@@ -200,9 +167,24 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/renderInitialState.js"></script>
+    <script src="/js/renderState.js"></script>
+    <script src="/js/audioTestComponent.js"></script>
+
+    <script src="/js/renderAdjustState.js"></script>
+    <script src="/js/renderLeftSpeakerState.js"></script>
+    <script src="/js/renderRightSpeakerState.js"></script>
 
     <script src="/js/scripts.js"></script>
 
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
 
 </body>
 

@@ -22,8 +22,52 @@ $('#submitZipBtn').click(function() {
 	$('#audioResZip').show();
 });
 
+$('#calibrationStartButton').click(function() {
+	$('#calibrateButtonContainer').hide();
+	$('#calibrate1').show();
+    initHearingTest();
+});
+
+//loginButton
+
+
+
+$('#signupForm').validate({
+    rules: {
+        email: {
+            required: true,
+            email: true
+        },
+        passwordSignUp: {
+            minlength: 8,
+            maxlength: 30,
+            required: true
+        },
+        confirmPasswordSignUp: {
+            minlength: 8,
+            maxlength: 30,
+            required: true
+        },
+        securityQuestionSignUp: {
+            required: true
+        },
+        securityAnswerSignUp: {
+            required: true
+        }
+    },
+    highlight: function (element) {
+        $(element).closest('.control-group').removeClass('success').addClass('error');
+    },
+    success: function (element) {
+        element.text('OK!').addClass('valid')
+            .closest('.control-group').removeClass('error').addClass('success');
+    }
+});
+
+
 $('#signUpButton').click(function() {
     //we'll want to validate the form entry when clicked
+    
     var signUpData = {
         'email' : $('#emailSignUp').val(),
         'password' : $('#passwordSignUp').val(),
@@ -51,11 +95,15 @@ $('#signUpButton').click(function() {
     });
 });
 
-$('#testBtn').click(function() {
+$('#loginSubmit').click(function() {
+    var loginData = {
+        'email' : $('#emailLogin').val(),
+        'password' : $('#passwordLogin').val(),
+    };
 	$.ajax( {
 			type : 'POST',
-			url : 'http://localhost:3000/test',
-			data : {key: 'val'},
+			url : 'http://localhost:3000/login',
+			data : loginData,
 			dataType : 'json',
 			encode : true,
 			success : function(data, status, res) {
@@ -67,7 +115,7 @@ $('#testBtn').click(function() {
 			}
 	});
 });
-//
-//$('#logoutButton').click(function() {
-//    
-//});
+
+$('#logoutButton').click(function() {
+    
+});

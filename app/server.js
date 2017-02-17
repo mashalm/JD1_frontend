@@ -60,9 +60,9 @@ app.get('/howitworks', function(req, res) {
   );
 });
 
-app.get('/puretonetest', function(req, res) {
+app.get('/calibrateheadphones', function(req, res) {
   res.render(
-    join(__dirname, 'views/puretonetest')
+    join(__dirname, 'views/calibrateheadphones')
   );
 });
 
