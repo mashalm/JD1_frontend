@@ -12,7 +12,7 @@ function renderRightSpeakerState(rootTag) {
         paragraph = '<p>' + paragraphText + '</p>',
 
         confirmBtnText = 'yes',
-        confirmBtnClickHandler = '';//'stateManager.update()',
+        confirmBtnClickHandler = 'window.location="/puretonetest"';//'stateManager.update()',
         confirmBtn = '<button type="button" class="btn btn-primary btn-block" onclick=' + confirmBtnClickHandler + '>' + confirmBtnText + '</button>';
 
         denyBtnText = 'no',

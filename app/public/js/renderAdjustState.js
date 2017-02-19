@@ -34,7 +34,7 @@ function renderAdjustState(rootTag) {
     initialGain = 0.1,
     buildComponent = function() {
       var
-        paragraphText = 'Was that too loud? Adjust the volume with the slider and click "play" to try again.\n\nWhen you\'re comfortable with the volume, click "next" to proceed',
+        paragraphText = 'Was that too loud? Adjust the volume with the slider and click "play" to try again.\n\n Choose the lowest volume level that still allows you to hear the sound, then click "next" to proceed',
         paragraph = '<p>' + paragraphText + '</p>',
 
         playBtnClickHandler = 'adjustStateSound.burst()',
@@ -56,8 +56,14 @@ function renderAdjustState(rootTag) {
         nextBtnClickHandler = 'stateManager.update()',
         nextBtn = '<button type="button" class="btn btn-primary btn-block" onclick=' + nextBtnClickHandler + '>' + nextBtnText + '</button>';
 
-      return '<hr/>'+ paragraph + slider + sliderScript + '<div class="col-md-3">' + playBtn + nextBtn + '</div>';
+      return '<hr/>'+ paragraph + slider + sliderScript + '<BR><div class="col-md-3">' + playBtn + nextBtn + '</div></div>';
     };
+    
+    $('head').append('<style>' +
+//        '#adjustStateSlider { float: left; clear: left; width: 300px; margin: 15px;}' +
+        '#adjustStateSlider .ui-slider-range {background: #428bca;}' + 
+        '#adjustStateSlider .ui-slider-handle {border-color: #428bca;}' +
+    '</style>');
 
   gain.gain.value = initialGain;
   gain.connect(audioDest);
