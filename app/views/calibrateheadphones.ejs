@@ -23,6 +23,8 @@
     <!-- Custom Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
 
+    
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -116,78 +118,36 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Welcome to the Hearing Self-Test
+                    Check Your Headphones
                 </h1>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-headphones"></i> Hearing Test</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Our hearing often deteriorates as we get older. By taking this simple test, you can help detect if you may have a potential hearing problem which requires an in-depth screening from a hearing professional. When you are in quiet surroundings, press the button below to begin.</p>
-                        <a href="hearingtest" class="btn btn-primary" id="starTestButton">Start Test</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-line-chart"></i> Create an Account</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>By signing up for an account, you can save your hearing test results so that they may be viewed later. After taking multiple tests you can track your changes in hearing over time.
-                        If you have already created an account, press login above. Otherwise, press sign up below.
-                        </p>
-                        <a href="/users/register" class="btn btn-primary">Sign Up</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-phone"></i> Contact an Audiologist</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Do your results show that you may have hearing loss, or do you suspect that you may have hearing loss? As this hearing test is only a screening, it is suggested that you contact your local audiologist or hearing care professional for an in-depth screening.</p>
-                        <a href="audiologists" class="btn btn-primary">Find an Audiologist</a>
-                    </div>
-                </div>
-            </div>
         </div> <!-- /.row -->
-
-
-        <!-- Features Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">About This Hearing Test</h2>
-            </div>
-            <div class="col-md-7">
-                <p>This online hearing screen includes:</p>
-                <ul>
-                    <li>Pure-tone testing
-                    </li>
-                    <li>Speech testing</li>
-                    <!-- <li>More coming soon</li> -->
-                </ul>
-                <p>The type of hearing test you take will depend on whether you have headphones and the noise level of your environment. For more details, visit the <a href="howitworks">how it works </a> page.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="img-responsive" src="http://www.audiahearing.ca/wp-content/uploads/2016/01/98199084-home2.png" alt="">
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
         <!-- Call to Action Section -->
         <div class="well" style="background: #fff;">
             <div class="row">
-                <div class="col-md-8">
-                    <p>Do you suspect that you suffer from hearing loss? Make an appointment with your local audiologist or hearing care professional.</p>
+                <div class="col-md-12">
+                    <p>Before we proceed with the test, you will want to check to see if your headphones work. To do so, we will play a short sound. First, however, please ensure the following is done:</p>
+                    <ul>
+                        <li>Your headphones are properly plugged in and connected to your computer</li>
+                        <li>The volume on your computer is NOT muted or turned all the way down</li>
+                        <li>Your headphones are placed securely in/over your ears</li>
+                    </ul>
+                    Once you have double-checked that the above steps are complete, press next to begin testing your headphones. You will hear a sound playing and will be asked to adjust the volume.
+                    
                 </div>
-                <div class="col-md-4">
-                    <a class="btn btn-lg btn-success btn-block" href="audiologists">Find an Audiologist</a>
+
+            </div>
+            
+            <div class="row" id="calibrateButtonContainer">
+                <div class="col-md-offset-9 col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" id="calibrationStartButton">Next</a>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12" id="calibrateContainer">
+    
+                    
                 </div>
             </div>
         </div>
@@ -211,15 +171,21 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
+    
+    <!-- form validator -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/renderInitialState.js"></script>
+    <script src="/js/renderState.js"></script>
+    <script src="/js/audioTestComponent.js"></script>
+
+    <script src="/js/renderAdjustState.js"></script>
+    <script src="/js/renderLeftSpeakerState.js"></script>
+    <script src="/js/renderRightSpeakerState.js"></script>
 
     <script src="/js/scripts.js"></script>
 
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
 
 </body>
 

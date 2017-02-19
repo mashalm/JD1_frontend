@@ -60,15 +60,27 @@ app.get('/howitworks', function(req, res) {
   );
 });
 
-app.get('/puretonetest', function(req, res) {
+app.get('/calibrateheadphones', function(req, res) {
   res.render(
-    join(__dirname, 'views/puretonetest')
+    join(__dirname, 'views/calibrateheadphones')
   );
 });
 
 app.get('/pastscores', function(req, res) {
   res.render(
     join(__dirname, 'views/pastscores')
+  );
+});
+
+app.get('/logout', function(req, res) {
+  res.render(
+    join(__dirname, 'views/fake-logout')
+  );
+});
+
+app.get('/puretonetest', function(req, res) {
+  res.render(
+    join(__dirname, 'views/puretonetest')
   );
 });
 

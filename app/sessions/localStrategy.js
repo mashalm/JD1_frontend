@@ -15,10 +15,13 @@ var localStrategy = new LocalStrategy({usernameField:"email"}, function(email, p
       };
     })
     .then(function(result) {
-      if (result.match)
-        return result.user;
+      return result.match.then(function(comparison) {
+        if (comparison)
+          return result.user;
 
-      return null;
+        console.log('passwords do not match');
+        return null; 
+      });
     })
     .asCallback(done)
     .catch(function(err) {
