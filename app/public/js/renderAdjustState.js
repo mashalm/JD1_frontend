@@ -61,7 +61,8 @@ function renderAdjustState(rootTag) {
     
     $('head').append('<style>' +
 //        '#adjustStateSlider { float: left; clear: left; width: 300px; margin: 15px;}' +
-        '#adjustStateSlider .ui-slider-range {background: #428bca;}' + 
+        '#adjustStateSlider {background: #5bc0de;}' + 
+//        '#adjustStateSlider .ui-slider-range {background: #000;}' +
         '#adjustStateSlider .ui-slider-handle {border-color: #428bca;}' +
     '</style>');
 
