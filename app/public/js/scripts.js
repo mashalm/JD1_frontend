@@ -1,3 +1,20 @@
+var puretoneBtnClick = 1;
+$('#puretoneTestNextButton').click(function() {
+    if(puretoneBtnClick < 5) {
+        puretoneBtnClick++;
+        //assuming there are five total before test completion:
+        var multiplier = 20;
+        var prog = puretoneBtnClick * multiplier;
+        $('#puretoneProgress').css('width', prog+'%').attr('aria-valuenow', prog);
+        $('#puretoneProgress').text(prog + '%');
+    } else {
+        //test completed, go to next page:
+        //this will later have to actually send data
+        window.location = '/results';
+    }
+    
+});
+
 
 
 $('#startpuretone').click(function() {
