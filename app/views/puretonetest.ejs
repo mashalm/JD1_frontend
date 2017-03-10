@@ -145,20 +145,13 @@
             </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-3">
-                        <a id="tone1" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playtone(4000)"></i></a>
-                        <script type="text/javascript">
-                            //TODO: use the actual tone generator instead of the static tones
-                            function playtone(frequency) {
-                                //TODO: Exception handling
-                                var tone = new Audio("static/" + frequency + ".mp3");
-                                tone.play();
-                            }
-                        </script>
-                        <a id="tone2" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playtone(6000)"></i></a>
-                        <a id="tone3" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playtone(8000)"></i></a>
-                        <a id="tone4" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playtone(9000)"></i></a>
-                        <a id="tone5" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playtone(10000)"></i></a>
-                        <a id="tone6" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playtone(12000)"></i></a>
+                        <script src="js/puretonetest.js"></script>
+                        <a id="tone1" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playBeep(125)"></i></a>
+                        <a id="tone2" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playBeep(500)"></i></a>
+                        <a id="tone3" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playBeep(1000)"></i></a>
+                        <a id="tone4" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playBeep(2000)"></i></a>
+                        <a id="tone5" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playBeep(4000)"></i></a>
+                        <a id="tone6" style="padding-right:40px"><i class="fa fa-volume-up fa-4x" aria-hidden="true" onclick="playBeep(8000)"></i></a>
                     </div>
                 </div>
                 <div class="row">
