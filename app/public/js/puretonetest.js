@@ -32,7 +32,6 @@ var
 var global_frequency = 1000;
 
 function playBeep(frequency) {
-    gain.gain.value = 0.1;
   gain.connect(audioDest);
   global_frequency_backup = global_frequency;
   global_frequency = frequency;
@@ -41,4 +40,37 @@ function playBeep(frequency) {
 
   setTimeout(function() {
   }, adjustStateSound.duration);
+}
+
+var global_counter = 0;
+function setNewGainValue() {
+    switch(global_counter++) {
+        case 0:
+            setVolumeInDb(10);
+            break;
+        case 1:
+            setVolumeInDb(20);
+            break;
+        case 2:
+            setVolumeInDb(30);
+            break;
+        case 3:
+            setVolumeInDb(50);
+            break;
+        case 4:
+            setVolumeInDb(60);
+            break;
+        case 5:
+            setVolumeInDb(75);
+            break;
+        case 6:
+            setVolumeInDb(95);
+            break;
+        default:
+            break;
+    }
+}
+
+function setVolumeInDb(decibel) {
+    gain.gain.value = Math.pow(10, decibel/20);
 }

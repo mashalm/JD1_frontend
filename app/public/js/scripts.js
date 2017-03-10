@@ -1,13 +1,13 @@
 var puretoneBtnClick = 1;
 $('#puretoneTestNextButton').click(function() {
-    if(puretoneBtnClick < 5) {
+    if(puretoneBtnClick < 7) {
         //TODO: we will actually have to save their answers
         //instead of just clearing them:
         $(":checkbox").prop('checked', false).parent().removeClass('active');
         
         puretoneBtnClick++;
         //assuming there are five total before test completion:
-        var multiplier = 20;
+        var multiplier = 14;
         var prog = puretoneBtnClick * multiplier;
         $('#puretoneProgress').css('width', prog+'%').attr('aria-valuenow', prog);
         $('#puretoneProgress').text(prog + '%');
