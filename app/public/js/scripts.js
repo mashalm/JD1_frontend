@@ -1,10 +1,26 @@
+
+//------------------------------
+
+var testResults = []; //this will be an array of objects
+var numNoneChecked = 0;
+var numMildChecked = 0;
+var numModerateChecked = 0;
+var numSevereChecked = 0;
+var numProfoundChecked = 0;
+var score = 0;
 var puretoneBtnClick = 1;
+var round = 0;
 $('#puretoneTestNextButton').click(function() {
     if(puretoneBtnClick < 7) {
-        //TODO: we will actually have to save their answers
-        //instead of just clearing them:
+        //kk here is some ugly af answer-saving
+        //we want to be as fine grained as possible, so:
+        getRoundResults(round);
+        //console.log(testResults);
+
+        //after collecting all results, clear:
         $(":checkbox").prop('checked', false).parent().removeClass('active');
-        
+
+        round++;
         puretoneBtnClick++;
         //assuming there are five total before test completion:
         var multiplier = 14;
@@ -12,8 +28,10 @@ $('#puretoneTestNextButton').click(function() {
         $('#puretoneProgress').css('width', prog+'%').attr('aria-valuenow', prog);
         $('#puretoneProgress').text(prog + '%');
     } else {
-        //test completed, go to next page:
-        //this will later have to actually send data
+        //for now just store using localStorage:
+        var score = calculateScore();
+        localStorage.setItem("score", score);
+        //localStorage.setItem("testResults", JSON.stringify(testResults));
         window.location = '/results';
     }
     
@@ -140,3 +158,54 @@ $('#loginSubmit').click(function() {
 $('#logoutButton').click(function() {
     
 });
+
+
+
+function getRoundResults(round) {
+    var frequencies = [125, 500, 1000, 2000, 4000, 8000];
+    var volumes = [10, 20, 30, 50, 60, 75, 95];
+    var i = 0;
+    $("#checkboxContainer").find("input:checkbox").each( function() {
+        var checked = false;
+        if ($(this).prop('checked')) {
+            checked = true;
+            switch(round) {
+                case 0:
+                    numNoneChecked++;
+                    break;
+                case 1:
+                    numNoneChecked++;
+                    break;
+                case 2:
+                    numMildChecked++;
+                    break;
+                case 3:
+                    numModerateChecked++;
+                    break;
+                case 4:
+                    numModerateChecked++;
+                    break;
+                case 5:
+                    numSevereChecked++;
+                    break;
+            }
+        }
+        var elem = {
+            frequency:frequencies[i],
+            volume:volumes[round],
+            heard:checked
+        }
+        i++;
+        testResults.push(elem);
+    })
+}
+
+
+
+function calculateScore() {
+    if(numNoneChecked >=6 ) return 5;
+    else if(numMildChecked>=3) return 4;
+    else if(numModerateChecked>=6) return 3;
+    else if(numSevereChecked>=3) return 2;
+    else return 1;
+}

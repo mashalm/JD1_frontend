@@ -76,15 +76,16 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header" id="puretonepageH1">Hearing Test Results
+                <h1 class="page-header" id="puretonepageH1">Share Results
                     <!-- <small>import Teamname</small> -->
                 </h1>
                 <ol class="breadcrumb" style="background: #fefefe">
                     <li><a href="/">Home</a>
                     </li>
                     <li><a href="hearingtest">Choose Test</a></li>
+                    <li><a href="hearingtest">Hearing Test Results</a></li>
                     <!-- <li> <a href="puretonetest.html">Pure-tone Test</a></li> -->
-                    <li class="active">Hearing Test Results</a></li>
+                    <li class="active">Share Results</a></li>
                 </ol>
             </div>
         </div>
@@ -92,55 +93,41 @@
 
 
         <!-- <div id="puretonetest" style="display:none;"> -->
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2" id="hearingScoreDiv">
-                    <div>
-                        <i class="fa fa-star-o fa-5x" aria-hidden="true" style="margin-left:13%"></i>
-                        <i class="fa fa-star-o fa-5x" aria-hidden="true"></i>
-                        <i class="fa fa-star-o fa-5x" aria-hidden="true"></i>
-                        <i class="fa fa-star-o fa-5x" aria-hidden="true"></i>
-                        <i class="fa fa-star-o fa-5x" aria-hidden="true"></i>
-                        <p/>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-pencil-square-o"></i> Send Results</h4>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-9" id="resultsExplainDiv">
-                    <!-- <h2>Find a hearing professional near you</h2> -->
-                    <div id="resultsHead">
-                        <p><strong>You likely have a hearing problem.</strong></p>
-                    </div>
-                    <div id="resultsExplain">
-                        <p>
-                        Your results show that you may have a hearing problem. It is suggested that you contact a local audiologist to receive an in-depth hearing test. Hearing difficulties are common, especially in people aged 60 and above.
-                        </p>
-                    </div>
-                    <p>
-                    If you would like to save these results and then view them later, please create an account or login if you already have one. By clicking "Save Results" you will be prompted to login or create an account.
-                    </p>
-                    <p>
-                    If you would like to share these results with your loved ones, please click "Share results". You will be prompted to fill out your information as well as the email address you would like to send the results to.
-                    </p>
+                    <div class="panel-body">
+                        <p>Use this form to send results to an email address of your choosing. It will send the results from your previous test as well as any accompanying message you would like to include (such as your name).</p>
+                        <form name="signupForm" id="signupForm" data-toggle="validator">
+                            <div class="form-group" id="emailSignUpFormGroup">
+                                <div class="controls">
+                                    <label for="emailSignUp" class="control-label">Email Address:</label>
+                                    <input type="email" name="email" class="form-control"  id="emailSignUp" required data-validation-required-message="Please enter the email address you would like to send your results to.">
+                                </div>
+                            </div>
+                            
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label for="securityAnswerSignUp" class="control-label">Additional Text:</label>
+                                    <textarea type="text" name="security_answer" class="form-control input-large" id="additionalSendMessage"> </textarea>
+                                </div>
+                            </div>
 
-                </div>
-                <div class="col-md-3">
-                    <p><strong>Next...</strong></p>
 
-                    <a href="/users/login" class="btn btn-primary btn-block">Save Results</a>
-                    <a href="shareResults" class="btn btn-primary btn-block">Share Results</a>
-                    <a href="audiologists" class="btn btn-success btn-block">Find Audiologists</a>
-                </div>
-            </div>
-<!--             <div class="row">
-            <BR><BR><BR>
-                <div class="progress">
-                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                        80%
-                      </div>
+                            <div id="success"></div>
+                            <!-- For success/fail messages -->
+                            <!-- <button type="submit" class="btn btn-primary" id="loggedin">Login</button> -->
+                            <!-- <hr /> -->
+                            <button type="submit" class="btn btn-success btn-block" id="sendResultsBtn" onclick="alert('results sent!')"> Send Results
+                            </button>
+                        </form>
                     </div>
-            </div> -->
-        <!-- </div> -->
+                </div>
+             </div>
+        </div>
 
 
         <hr>
@@ -166,8 +153,6 @@
     <!-- custom scripts -->
 <!--    <script src="js/scripts.js"></script>-->
 
-    <!-- custom scripts -->
-    <script src="js/results.js"></script>
 
 </body>
 

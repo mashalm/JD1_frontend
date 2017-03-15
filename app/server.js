@@ -84,4 +84,10 @@ app.get('/puretonetest', function(req, res) {
   );
 });
 
+app.get('/shareResults', function(req, res) {
+  res.render(
+    join(__dirname, 'views/shareResults')
+  );
+});
+
 app.listen(3000);
