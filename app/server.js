@@ -6,6 +6,7 @@ var
   cors = require('cors'),
   session = require('express-session'),
   userRoutes = require('./users').routes,
+  testRoutes = require('./testResults').routes,
   passport = require('./sessions');
 
 app
@@ -23,6 +24,7 @@ app
 app.set('view engine', 'ejs');
 
 app.use('/users', userRoutes);
+app.use('/testResults', testRoutes);
 
 app.get('/', function(req, res) {
   res.render(
