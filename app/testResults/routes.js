@@ -1,5 +1,6 @@
 var
-  router = require('express').Router();
+  router = require('express').Router(),
+  saveTestResult = require('../testResults').saveTestResult;
 
 var auth = function(req, res, next) {
   if (req.isAuthenticated())
@@ -25,7 +26,14 @@ var calculateScore = function(req, res, next) {
 
 router
   .route('/')
-  .post(auth, validate, calculateScore, saveTestResult);
+  .post(auth, validate, calculateScore, function(req, res) {
+    var testData = req.testData;
+    var userId = req.user.id;
+
+    testData.userId = userId;
+
+    saveTestResult(testData);
+  });
 
 
 module.exports = router;
