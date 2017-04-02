@@ -6,7 +6,7 @@ var saveTestResult = function(testResult) {
   return persist(testResult)
     .then(function(result) {
       return result;
-    })
+    });
 };
 
 module.exports = saveTestResult;

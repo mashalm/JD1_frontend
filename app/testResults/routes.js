@@ -1,6 +1,7 @@
 var
   router = require('express').Router(),
-  saveTestResult = require('../testResults').saveTestResult;
+  attr = require('dynamodb-data-types').AttributeValue,
+  saveTestResult = require('./saveTestResult');
 
 var auth = function(req, res, next) {
   if (req.isAuthenticated())
@@ -9,7 +10,7 @@ var auth = function(req, res, next) {
     res.redirect('/users/login');
 };
 
-var validate = function(req, res) {
+var validate = function(req, res, next) {
   var testData = {
     frequencies: req.body.frequencies
     // TODO extract correct values
@@ -27,12 +28,22 @@ var calculateScore = function(req, res, next) {
 router
   .route('/')
   .post(auth, validate, calculateScore, function(req, res) {
-    var testData = req.testData;
-    var userId = req.user.id;
+    console.log('req.user: ', req.user);
+
+    var
+      user = attr.unwrap(req.user.Item),
+      testData = req.testData,
+      userId = user.id;
 
     testData.userId = userId;
 
-    saveTestResult(testData);
+    console.log('typeof saveTestResult: ', typeof saveTestResult);
+    console.log('testData: ', testData);
+
+    saveTestResult(testData)
+      .then(function(result) {
+        res.status(200).send(result);
+      });
   });
 
 

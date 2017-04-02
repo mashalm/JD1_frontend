@@ -8,7 +8,8 @@ var createUser = function createUser(userdata) {
     password: {S: userdata.password},
     security_question: {S: userdata.security_question},
     security_answer: {S: userdata.security_answer},
-    id: {S: userdata.id}
+    id: {S: userdata.id},
+    testResults: {L: []}
   };
 
   return db

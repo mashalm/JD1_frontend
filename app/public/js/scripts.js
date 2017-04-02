@@ -32,9 +32,28 @@ $('#puretoneTestNextButton').click(function() {
         var score = calculateScore();
         localStorage.setItem("score", score);
         //localStorage.setItem("testResults", JSON.stringify(testResults));
-        window.location = '/results';
+
+        // send to server
+        var testData = {
+          score: score
+        };
+
+        $.ajax({
+            type : 'POST',
+            url : 'http://localhost:3000/testResults',
+            data : testData,
+            dataType : 'json',
+            encode : true,
+            success : function(user, status) {
+                console.log('successfully created test ', user);
+                window.location = "/results";
+            },
+    				error : function(xhr) {
+    					console.log('error saving test result: ', xhr);
+    				}
+        });
     }
-    
+
 });
 
 
@@ -106,7 +125,7 @@ $('#signupForm').validate({
 
 $('#signUpButton').click(function() {
     //we'll want to validate the form entry when clicked
-    
+
     var signUpData = {
         'email' : $('#emailSignUp').val(),
         'password' : $('#passwordSignUp').val(),
@@ -156,7 +175,7 @@ $('#loginSubmit').click(function() {
 });
 
 $('#logoutButton').click(function() {
-    
+
 });
 
 
