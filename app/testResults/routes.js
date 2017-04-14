@@ -1,6 +1,7 @@
 var
   router = require('express').Router(),
   attr = require('dynamodb-data-types').AttributeValue,
+  // doc = require('dynamodb-doc'),
   saveTestResult = require('./saveTestResult');
 
 var auth = function(req, res, next) {
@@ -16,6 +17,8 @@ var validate = function(req, res, next) {
     // TODO extract correct values
   };
 
+  console.log('validating test data');
+
   req.testData = testData;
   next();
 };
@@ -28,7 +31,6 @@ var calculateScore = function(req, res, next) {
 router
   .route('/')
   .post(auth, validate, calculateScore, function(req, res) {
-    console.log('req.user: ', req.user);
 
     var
       user = attr.unwrap(req.user.Item),
@@ -36,13 +38,15 @@ router
       userId = user.id;
 
     testData.userId = userId;
-
-    console.log('typeof saveTestResult: ', typeof saveTestResult);
     console.log('testData: ', testData);
 
     saveTestResult(testData)
       .then(function(result) {
-        res.status(200).send(result);
+        console.log('result: ', result);
+        res.status(200).json({});
+      })
+      .catch(function(e) {
+        res.status(500).json({});
       });
   });
 

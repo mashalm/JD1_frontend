@@ -38,19 +38,21 @@ $('#puretoneTestNextButton').click(function() {
           score: score
         };
 
+        console.log('sending test result data');
+
         $.ajax({
-            type : 'POST',
-            url : 'http://localhost:3000/testResults',
-            data : testData,
-            dataType : 'json',
-            encode : true,
-            success : function(user, status) {
-                console.log('successfully created test ', user);
-                window.location = "/results";
-            },
-    				error : function(xhr) {
-    					console.log('error saving test result: ', xhr);
-    				}
+          type : 'POST',
+          url : 'http://localhost:3000/testResults',
+          data : testData,
+          dataType : 'json',
+          encode : true,
+          success : function(user, status) {
+            console.log('successfully created test ', user);
+            window.location = "/results";
+          },
+          error : function(xhr, status, err) {
+            console.log('error saving test result: ', status, "\n", err);
+          }
         });
     }
 
