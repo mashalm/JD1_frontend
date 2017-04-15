@@ -47,12 +47,10 @@ var saveTestResult = function saveTestResult(testResult) {
         ":attrValue" : {
           L: [{
             M: {
-              score: {S: '0'}, // testResult.score
-              created: {S: 'now'}//testResult.created}
+              userId: {S: testResult.userId},
+              score: {N: testResult.score.toString()},
+              created: {N: testResult.created.toString()}
             }
-          //   created: {
-          //     S: testResult.created
-          //   }
           }]
         }
       }
