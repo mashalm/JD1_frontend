@@ -30,6 +30,12 @@ var calculateScore = function(req, res, next) {
 
 router
   .route('/')
+  .get(auth, function(req, res) {
+    var
+      user = attr.unwrap(req.user.Item);
+
+    res.status(200).send(user.testResults);
+  })
   .post(auth, validate, calculateScore, function(req, res) {
 
     var
@@ -38,11 +44,9 @@ router
       userId = user.id;
 
     testData.userId = userId;
-    console.log('testData: ', testData);
 
     saveTestResult(testData)
       .then(function(result) {
-        console.log('result: ', result);
         res.status(200).json({});
       })
       .catch(function(e) {
