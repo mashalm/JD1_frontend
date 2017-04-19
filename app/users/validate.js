@@ -5,7 +5,8 @@ var validate = function(req, res, next) {
     email: req.body.email,
     password: req.body.password,
     security_question: req.body.security_question,
-    security_answer: req.body.security_answer
+    security_answer: req.body.security_answer,
+    birth_year: req.body.birth_year || -1
   };
 
   req.userdata = userdata;

@@ -31,9 +31,33 @@ $('#puretoneTestNextButton').click(function() {
         var score = calculateScore();
         localStorage.setItem("score", score);
         //localStorage.setItem("testResults", JSON.stringify(testResults));
-        window.location = '/results';
+
+        var testData = {
+          score: score
+        };
+
+        if (loggedIn) {
+          // send to server
+          $.ajax({
+            type : 'POST',
+            url : 'http://localhost:3000/testResults',
+            data : testData,
+            dataType : 'json',
+            encode : true,
+            success : function(user, status) {
+              window.location = "/results";
+            },
+            error : function(xhr, status, err) {
+              console.log('error saving test result: ', status, "\n", err);
+            }
+          });
+        } else {
+          window.location = "/results";
+        }
+
+
     }
-    
+
 });
 
 var speechTestBtnClick = 0;
@@ -55,7 +79,7 @@ $('#speechTestNextButton').click(function() {
         var prog = (speechTestBtnClick+1) * multiplier;
         $('#speechWordProgress').css('width', prog+'%').attr('aria-valuenow', prog);
         $('#speechWordProgress').text(prog + '%');
-        
+
     } else {
         getSpeechRoundResults(sounds[speechTestBtnClick]);
         $('#speechWordAnswer').val('');
@@ -101,7 +125,7 @@ $('#calibrationStartButton').click(function() {
 
 $('#signUpButton').click(function() {
     //we'll want to validate the form entry when clicked
-    
+
     var signUpData = {
         'email' : $('#emailSignUp').val(),
         'password' : $('#passwordSignUp').val(),
@@ -151,7 +175,7 @@ $('#loginSubmit').click(function() {
 });
 
 $('#logoutButton').click(function() {
-    
+
 });
 
 
@@ -205,8 +229,7 @@ function calculateScore() {
     else return 1;
 }
 
-
-//current soundIds: 
+//current soundIds:
 //var sounds = ["noise", "farmer", "traffic", "tea", "cartoon", "children"];
 var soundAnswers = {
     noise:"noise",
