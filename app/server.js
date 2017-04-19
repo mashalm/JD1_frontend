@@ -82,7 +82,8 @@ app.get('/logout', function(req, res) {
 
 app.get('/puretonetest', function(req, res) {
   res.render(
-    join(__dirname, 'views/puretonetest')
+    join(__dirname, 'views/puretonetest'),
+    { loggedIn: req.isAuthenticated() }
   );
 });
 

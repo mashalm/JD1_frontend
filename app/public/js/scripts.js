@@ -33,27 +33,30 @@ $('#puretoneTestNextButton').click(function() {
         localStorage.setItem("score", score);
         //localStorage.setItem("testResults", JSON.stringify(testResults));
 
-        // send to server
         var testData = {
           score: score
         };
 
-        console.log('sending test result data');
+        if (loggedIn) {
+          // send to server
+          $.ajax({
+            type : 'POST',
+            url : 'http://localhost:3000/testResults',
+            data : testData,
+            dataType : 'json',
+            encode : true,
+            success : function(user, status) {
+              window.location = "/results";
+            },
+            error : function(xhr, status, err) {
+              console.log('error saving test result: ', status, "\n", err);
+            }
+          });
+        } else {
+          window.location = "/results";
+        }
 
-        $.ajax({
-          type : 'POST',
-          url : 'http://localhost:3000/testResults',
-          data : testData,
-          dataType : 'json',
-          encode : true,
-          success : function(user, status) {
-            console.log('successfully created test ', user);
-            window.location = "/results";
-          },
-          error : function(xhr, status, err) {
-            console.log('error saving test result: ', status, "\n", err);
-          }
-        });
+
     }
 
 });
