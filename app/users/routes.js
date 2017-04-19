@@ -49,7 +49,6 @@ router
   .post(validate, function(req, res) {
     register(req.userdata)
       .then(function(user) {
-        console.log('user has been registered: ', user);
         req.login(user, function(err) {
           if (err) {
             console.log('err: ', err);

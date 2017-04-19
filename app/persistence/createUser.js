@@ -9,6 +9,7 @@ var createUser = function createUser(userdata) {
     security_question: {S: userdata.security_question},
     security_answer: {S: userdata.security_answer},
     id: {S: userdata.id},
+    birth_year: {N: userdata.birth_year.toString()},
     testResults: {L: []}
   };
 
