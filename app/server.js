@@ -93,4 +93,10 @@ app.get('/shareResults', function(req, res) {
   );
 });
 
+app.get('/speechtest', function(req, res) {
+  res.render(
+    join(__dirname, 'views/speechtest')
+  );
+});
+
 app.listen(3000);

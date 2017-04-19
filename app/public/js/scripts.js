@@ -7,7 +7,6 @@ var numMildChecked = 0;
 var numModerateChecked = 0;
 var numSevereChecked = 0;
 var numProfoundChecked = 0;
-var score = 0;
 var puretoneBtnClick = 1;
 var round = 0;
 $('#puretoneTestNextButton').click(function() {
@@ -61,6 +60,35 @@ $('#puretoneTestNextButton').click(function() {
 
 });
 
+var speechTestBtnClick = 0;
+var sounds = ["noise", "farmer", "traffic", "tea", "cartoon", "children"];
+function playRecording() {
+    //TODO: Exception handling
+    var speech = new Audio("/static/" + sounds[speechTestBtnClick] + ".mp3");
+    speech.play();
+//    $('#audio').html('<audio autoplay><source src="static/' + sounds[speechTestBtnClick] + '.mp3"></audio>');
+}
+
+$('#speechTestNextButton').click(function() {
+    if(speechTestBtnClick < 5) {
+        getSpeechRoundResults(sounds[speechTestBtnClick]);
+        //after gettting results, clear:
+        $('#speechWordAnswer').val('');
+        speechTestBtnClick++;
+        var multiplier = 16;
+        var prog = (speechTestBtnClick+1) * multiplier;
+        $('#speechWordProgress').css('width', prog+'%').attr('aria-valuenow', prog);
+        $('#speechWordProgress').text(prog + '%');
+
+    } else {
+        getSpeechRoundResults(sounds[speechTestBtnClick]);
+        $('#speechWordAnswer').val('');
+        var score = calculateSpeechScore();
+        localStorage.setItem("score", score);
+        window.location = '/results';
+    }
+})
+
 
 
 $('#startpuretone').click(function() {
@@ -93,39 +121,6 @@ $('#calibrationStartButton').click(function() {
 
 //loginButton
 
-
-
-$('#signupForm').validate({
-    rules: {
-        email: {
-            required: true,
-            email: true
-        },
-        passwordSignUp: {
-            minlength: 8,
-            maxlength: 30,
-            required: true
-        },
-        confirmPasswordSignUp: {
-            minlength: 8,
-            maxlength: 30,
-            required: true
-        },
-        securityQuestionSignUp: {
-            required: true
-        },
-        securityAnswerSignUp: {
-            required: true
-        }
-    },
-    highlight: function (element) {
-        $(element).closest('.control-group').removeClass('success').addClass('error');
-    },
-    success: function (element) {
-        element.text('OK!').addClass('valid')
-            .closest('.control-group').removeClass('error').addClass('success');
-    }
-});
 
 
 $('#signUpButton').click(function() {
@@ -231,5 +226,38 @@ function calculateScore() {
     else if(numMildChecked>=3) return 4;
     else if(numModerateChecked>=6) return 3;
     else if(numSevereChecked>=3) return 2;
+    else return 1;
+}
+
+//current soundIds:
+//var sounds = ["noise", "farmer", "traffic", "tea", "cartoon", "children"];
+var soundAnswers = {
+    noise:"noise",
+    farmer:"the farmer harvested his crop",
+    traffic:"traffic",
+    tea:"there is tea on the dining table",
+    cartoon:"cartoon",
+    children:"the children are back from school"
+}
+var numSpeechCorrect = 0;
+function getSpeechRoundResults(soundId) {
+    var ans = $('#speechWordAnswer').val().trim().toLowerCase();
+    //console.log(ans);
+    if(ans == soundAnswers[soundId]) {
+        numSpeechCorrect++;
+    }
+    //take into account possible contraction ambiguity:
+    if(soundId=="tea") {
+        if(ans=="there's tea on the dining table") numSpeechCorrect++;
+    }
+    console.log(numSpeechCorrect);
+}
+
+
+function calculateSpeechScore() {
+    if(numSpeechCorrect > 5) return 5;
+    else if(numSpeechCorrect==5) return 4;
+    else if(numSpeechCorrect>2) return 3;
+    else if(numSpeechCorrect==2) return 2;
     else return 1;
 }

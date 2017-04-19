@@ -29,7 +29,7 @@ function displayRating(score) {
             '<i class="fa fa-star-o fa-5x" aria-hidden="true" style="color:#f0ad4e;padding:1%"></i>' +
             '<p/>');
         $('#resultsHead').html('<p><strong>You may have mild hearing loss.</strong></p>');
-        $('#resultsExplain').html('<p>Your results show that you have <strong class="text-warning">mild</strong> hearing loss. It is suggested that you contact a local audiologist to receive an in-depth hearing test. Hearing difficulties are common, especially in people aged 60 and above.</p>');
+        $('#actRes').html('have <strong class="text-warning">mild</strong> hearing loss.');
     } else if(score==3) {
         $('#hearingScoreDiv div').html('');
         $('#hearingScoreDiv div').html(
@@ -41,7 +41,7 @@ function displayRating(score) {
             '<i class="fa fa-star-o fa-5x" aria-hidden="true" style="color:#f0ad4e;padding:1%"></i>' +
             '<p/>');
         $('#resultsHead').html('<p><strong>You may have moderate hearing loss.</strong></p>');
-        $('#resultsExplain').html('<p>Your results show that you have <strong class="text-warning">moderate</strong> hearing loss. It is suggested that you contact a local audiologist to receive an in-depth hearing test. Hearing difficulties are common, especially in people aged 60 and above.</p>');
+        $('#actRes').html('have <strong class="text-warning">moderate</strong> hearing loss.');
         
     } else if(score==2) {
         $('#hearingScoreDiv div').html('');
@@ -54,7 +54,7 @@ function displayRating(score) {
             '<i class="fa fa-star-o fa-5x" aria-hidden="true" style="color:#d9534f;padding:1%"></i>' +
             '<p/>');
         $('#resultsHead').html('<p><strong>You may have severe hearing loss.</strong></p>');
-        $('#resultsExplain').html('<p>Your results show that you have <strong class="text-danger">severe</strong> hearing loss. It is suggested that you contact a local audiologist to receive an in-depth hearing test. Hearing difficulties are common, especially in people aged 60 and above.</p>');
+        $('#actRes').html('have <strong class="text-danger">severe</strong> hearing loss.');
         
     } else if(score==1) {
         $('#hearingScoreDiv div').html('');
@@ -67,7 +67,7 @@ function displayRating(score) {
             '<i class="fa fa-star-o fa-5x" aria-hidden="true" style="color:#d9534f;padding:1%"></i>' +
             '<p/>');
         $('#resultsHead').html('<p><strong>You may have profound hearing loss.</strong></p>');
-        $('#resultsExplain').html('<p>Your results show that you have <strong class="text-danger">profound</strong> hearing loss. It is suggested that you contact a local audiologist to receive an in-depth hearing test. Hearing difficulties are common, especially in people aged 60 and above.</p>');
+        $('#actRes').html('have <strong class="text-danger">profound</strong> hearing loss.');
     } else {
         $('#resultsExplainDiv').html('Oops something went wrong! Please try again.');
     }
