@@ -28,49 +28,57 @@ app.use('/testResults', testRoutes);
 
 app.get('/', function(req, res) {
   res.render(
-    join(__dirname, 'views/index')
+    join(__dirname, 'views/index'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/audiologists', function(req, res) {
   res.render(
-    join(__dirname, 'views/audiologists')
+    join(__dirname, 'views/audiologists'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/disclaimer', function(req, res) {
   res.render(
-    join(__dirname, 'views/disclaimer')
+    join(__dirname, 'views/disclaimer'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/results', function(req, res) {
   res.render(
-    join(__dirname, 'views/results')
+    join(__dirname, 'views/results'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/hearingtest', function(req, res) {
   res.render(
-    join(__dirname, 'views/hearingtest')
+    join(__dirname, 'views/hearingtest'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/howitworks', function(req, res) {
   res.render(
-    join(__dirname, 'views/howitworks')
+    join(__dirname, 'views/howitworks'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/calibrateheadphones', function(req, res) {
   res.render(
-    join(__dirname, 'views/calibrateheadphones')
+    join(__dirname, 'views/calibrateheadphones'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/pastscores', function(req, res) {
   res.render(
-    join(__dirname, 'views/pastscores')
+    join(__dirname, 'views/pastscores'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
@@ -83,19 +91,21 @@ app.get('/logout', function(req, res) {
 app.get('/puretonetest', function(req, res) {
   res.render(
     join(__dirname, 'views/puretonetest'),
-    { loggedIn: req.isAuthenticated() }
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/shareResults', function(req, res) {
   res.render(
-    join(__dirname, 'views/shareResults')
+    join(__dirname, 'views/shareResults'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/speechtest', function(req, res) {
   res.render(
-    join(__dirname, 'views/speechtest')
+    join(__dirname, 'views/speechtest'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 

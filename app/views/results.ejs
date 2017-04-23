@@ -60,7 +60,7 @@
                         <a href="audiologists">Find Audiologists</a>
                     </li>
                     <li>
-                    <a href="/users/login" class="btn btn-success" id="loginButton">Login</a>
+                        <%- include dynamicLoginLogout.ejs %>
                     </li>
 
                 </ul>
@@ -126,22 +126,13 @@
                 <div class="col-md-3">
                     <p><strong>Next...</strong></p>
 
-                    <a href="/users/login" class="btn btn-primary btn-block">Save Results</a>
+                    <%if (!isLoggedIn) { %>
+                      <a class="btn btn-primary btn-block" onclick="saveBtnClickhandler()">Save Results</a>
+                    <% } %>
                     <a href="shareResults" class="btn btn-primary btn-block">Share Results</a>
                     <a href="audiologists" class="btn btn-success btn-block">Find Audiologists</a>
                 </div>
             </div>
-<!--             <div class="row">
-            <BR><BR><BR>
-                <div class="progress">
-                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                        80%
-                      </div>
-                    </div>
-            </div> -->
-        <!-- </div> -->
-
 
         <hr>
 
@@ -162,9 +153,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- custom scripts -->
-<!--    <script src="js/scripts.js"></script>-->
 
     <!-- custom scripts -->
     <script src="js/results.js"></script>

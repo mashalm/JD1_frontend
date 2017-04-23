@@ -60,7 +60,7 @@
                         <a href="audiologists">Find Audiologists</a>
                     </li>
                     <li>
-                    <a href="/users/login" class="btn btn-success" id="loginButton">Login</a>
+                        <%- include dynamicLoginLogout.ejs %>
                     </li>
 
                 </ul>
@@ -108,14 +108,14 @@
                                     <input type="email" name="emailTo" class="form-control"  id="emailTo" required data-validation-required-message="Please enter the email address you would like to send your results to.">
                                 </div>
                             </div>
-                            
+
                             <div class="form-group" id="nameSendTo">
                                 <div class="controls">
                                     <label for="nameSendInput" class="control-label">Your Name:</label>
                                     <input type="text" name="nameSend" class="form-control"  id="nameSendInput">
                                 </div>
                             </div>
-                            
+
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label for="securityAnswerSignUp" class="control-label">Additional Text:</label>
