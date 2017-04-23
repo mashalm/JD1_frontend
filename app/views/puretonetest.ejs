@@ -60,7 +60,7 @@
                         <a href="audiologists">Find Audiologists</a>
                     </li>
                     <li>
-                    <a href="/users/login" class="btn btn-success" id="loginButton">Login</a>
+                      <%- include dynamic-login-logout.ejs %>
                     </li>
 
                 </ul>
@@ -130,7 +130,7 @@
             </div>
         <!-- /.row -->
         </div><!--intro -->
-        
+
         <div id="puretonetest" style="display:none;">
             <div class="row">
 <!--                <div class="col-md-3">-->
@@ -210,9 +210,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <!-- custom scripts -->
-    <script>
-      var loggedIn = <%= loggedIn %>;
-    </script>
+    <%- include isLoggedIn.ejs %>
 
     <script src="js/scripts.js"></script>
 
