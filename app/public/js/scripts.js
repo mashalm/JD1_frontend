@@ -36,7 +36,7 @@ $('#puretoneTestNextButton').click(function() {
           score: score
         };
 
-        if (loggedIn) {
+        if (isLoggedIn) {
           // send to server
           $.ajax({
             type : 'POST',
