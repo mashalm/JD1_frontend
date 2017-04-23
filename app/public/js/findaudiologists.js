@@ -42,8 +42,17 @@ function test_callback(results, status) {
           });
       }
       if (a_pi && a_namei) {
+          //Get details of this place
+          var detail_request = {
+              placeId: results[i].place_id
+          }
+          service = new google.maps.places.PlacesService(map);
+          service.getDetails(detail_request, function(place, status) {
+             a_pi.innerHTML=results[i].formatted_address + "\n" + results[i].formatted_phone_number;
+          });
+
           a_namei.innerHTML = results[i].name;
-          a_pi.innerHTML = results[i].formatted_address;
+          //a_pi.innerHTML = results[i].formatted_address;
       } else {
           var a_divi = document.getElementById("a_div"+i);
           a_divi.setAttribute("style", "display: none");
