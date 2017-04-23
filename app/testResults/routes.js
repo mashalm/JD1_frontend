@@ -1,7 +1,6 @@
 var
   router = require('express').Router(),
   attr = require('dynamodb-data-types').AttributeValue,
-  // doc = require('dynamodb-doc'),
   saveTestResult = require('./saveTestResult');
 
 var auth = function(req, res, next) {
@@ -12,21 +11,22 @@ var auth = function(req, res, next) {
 };
 
 var validate = function(req, res, next) {
+  if (!req.body || !req.body.score) {
+    res.status(400).send({
+      msg: 'error sending test score'
+    });
+  }
+
+  var score = req.body.score;
+
   var testData = {
-    frequencies: req.body.frequencies
-    // TODO extract correct values
+    score: score
   };
 
-  console.log('validating test data');
-
   req.testData = testData;
+
   next();
 };
-
-var calculateScore = function(req, res, next) {
-  req.testData.score = 0; // TODO score properly
-  next();
-}
 
 router
   .route('/')
@@ -36,7 +36,7 @@ router
 
     res.status(200).send(user.testResults);
   })
-  .post(auth, validate, calculateScore, function(req, res) {
+  .post(auth, validate, function(req, res) {
 
     var
       user = attr.unwrap(req.user.Item),
