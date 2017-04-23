@@ -109,7 +109,8 @@ $('#loggedin').click(function() {
 
 
 $('#submitZipBtn').click(function() {
-	$('#introAudiologists').hide();
+    test_request();
+    $('#introAudiologists').hide();
 	$('#audioResZip').show();
 });
 
@@ -177,8 +178,6 @@ $('#loginSubmit').click(function() {
 $('#logoutButton').click(function() {
 
 });
-
-
 
 function getRoundResults(round) {
     var frequencies = [125, 500, 1000, 2000, 4000, 8000];

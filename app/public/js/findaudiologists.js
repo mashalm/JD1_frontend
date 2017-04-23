@@ -12,6 +12,7 @@ function test_request() {
 
     var location_desc = document.getElementById("email").value;
     if (!location_desc) location_desc = 30332;
+    document.getElementById("near-zipcode").innerHTML = "near " + location_desc;
     var test_request = {
         query: "audiologists near" + location_desc
     };
