@@ -31,7 +31,7 @@ var
 
 function renderAdjustState(rootTag) {
   var
-    initialGain = 0.1,
+    initialGain = 0.25,
     buildComponent = function() {
       var
         paragraphText = 'Was that too loud? Adjust the volume with the slider and click "play" to try again.\n\n Choose the lowest volume level that still allows you to hear the sound, then click "next" to proceed',
