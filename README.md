@@ -30,6 +30,8 @@ and run the code:
 npm start
 ```
 
+Then navigate to [localhost:3000](localhost:3000) to access the site.
+
 ## Running Remotely:
 
 Currently the code is hosted with Amazon's cloud servers. The server was stopped to save on costs, so you'll need to reactivate it first. This can be done in the AWS EC2 console, under the Oregon region.
@@ -40,4 +42,6 @@ To access the server, use the .pem file supplied and run the following command:
 ssh -i /path/to/pem/file ubuntu@54.218.174.22
 ```
 
-the same commands to run locally work her as well.
+the same commands to run locally work here as well.
+
+Navigate to [54.218.174.22:3000](54.218.174.22) to reach the site
