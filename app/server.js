@@ -97,13 +97,15 @@ app.get('/puretonetest', function(req, res) {
 
 app.get('/shareResults', function(req, res) {
   res.render(
-    join(__dirname, 'views/shareResults')
+    join(__dirname, 'views/shareResults'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
 app.get('/speechtest', function(req, res) {
   res.render(
-    join(__dirname, 'views/speechtest')
+    join(__dirname, 'views/speechtest'),
+    { isLoggedIn: req.isAuthenticated() }
   );
 });
 
