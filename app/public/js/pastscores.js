@@ -7,6 +7,17 @@ $( document ).ready(function() {
 function populateChart() {
  
     var d1 = [[1262304000000, 1], [1264982400000, 2], [1267401600000, 2], [1270080000000, 3], [1272672000000, 4], [1275350400000, 4], [1277942400000, 5], [1280620800000, 4], [1283299200000, 5], [1285891200000, 2], [1288569600000, 3], [1291161600000, 1]];
+    
+//    $.ajax({
+//            type : 'GET',
+//            url : 'http://localhost:3000/testResults',
+//            success : function(data, status) {
+//              d1 = data;
+//            },
+//            error : function(xhr, status, err) {
+//              console.log('error retrieving test result: ', status, "\n", err);
+//            }
+//          });
 
     var data1 = [
     {data: d1, points: { symbol: "circle", fillColor: "#058DC7" }, color: '#058DC7'}

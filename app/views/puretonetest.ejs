@@ -105,14 +105,32 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <button type="button" class="btn btn-primary btn-block" id="startpuretone">Start Test</button>
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">Start Test</button>
 
             </div>
 
         </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Disclaimer</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>You must read the following disclaimer before continuing.</p> <br>
+                      <p>It is highly recommended to see an audiologist regardless of the results of this test. An audiologist will be able to better access any hearing loss that may be present, and they will be able to direct you to the correct treatment if necessary. Please do not use the results of this test as anything other than supplementary to a hearing test by a licensed audiologist.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="startpuretone">Continue</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         <!-- /.row -->
         </div><!--intro -->
-
+        
         <div id="puretonetest" style="display:none;">
             <div class="row">
 <!--                <div class="col-md-3">-->
