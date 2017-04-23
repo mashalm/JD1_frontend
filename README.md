@@ -30,7 +30,7 @@ and run the code:
 npm start
 ```
 
-Then navigate to [localhost:3000](localhost:3000) to access the site.
+Then navigate to [http://localhost:3000](localhost:3000) to access the site.
 
 ## Running Remotely:
 
@@ -44,4 +44,4 @@ ssh -i /path/to/pem/file ubuntu@54.218.174.22
 
 the same commands to run locally work here as well.
 
-Navigate to [54.218.174.22:3000](54.218.174.22) to reach the site
+Navigate to [http://54.218.174.22:3000](54.218.174.22) to reach the site
