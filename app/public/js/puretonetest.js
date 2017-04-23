@@ -9,15 +9,15 @@ var
       var
         freq = global_frequency,
         osc = audioCtx.createOscillator(),
+        scale = localStorage.getItem('volume'),
         roundToNearestHalf = function(num) {
           return Math.round(num*2)/2;
         }
 
+      console.log('scaling sound by: ', scale);
+
       osc.frequency.value = freq;
-      if (!firstCall) {
-        var sliderVal = $('#adjustStateSlider').slider('value');
-        gain.gain.value = roundToNearestHalf(sliderVal);
-      }
+      gain.gain.value = roundToNearestHalf(scale);
 
       osc.connect(gain);
       osc.start();
@@ -28,7 +28,7 @@ var
       }, adjustStateSound.duration);
     }
   };
-  
+
 var global_frequency = 1000;
 
 function playBeep(frequency) {
