@@ -14,12 +14,12 @@ var changePassword = function(userId, password) {
       Key: key,
       UpdateExpression : "SET #attrName = :attrValue",
       ExpressionAttributeNames : {
-          "#attrName" : "password"
+        "#attrName" : "password"
       },
       ExpressionAttributeValues : {
-          ":attrValue" : {
-              "S" : password
-          }
+        ":attrValue" : {
+          "S" : password
+        }
       }
     })
     .promise()
