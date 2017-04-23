@@ -12,7 +12,6 @@ function test_request() {
 
     var location_desc = document.getElementById("email").value;
     if (!location_desc) location_desc = 30332;
-    //var search_str = "audiologists near" + location_desc.outerHTML;
     var test_request = {
         query: "audiologists near" + location_desc
     };
@@ -30,6 +29,17 @@ function test_callback(results, status) {
       console.log(place.formatted_address);
       var a_pi = document.getElementById("a_p"+i);
       var a_namei = document.getElementById("a_name"+i);
+      var mapi = document.getElementById("map"+i);
+      if (mapi) {
+          this_map = new google.maps.Map(document.getElementById("map"+i), {
+              center: results[i].geometry.location,
+              zoom: 17
+          });
+          this_marker = new google.maps.Marker({
+              position: results[i].geometry.location,
+              map: this_map
+          });
+      }
       if (a_pi && a_namei) {
           a_namei.innerHTML = results[i].name;
           a_pi.innerHTML = results[i].formatted_address;
