@@ -30,7 +30,6 @@ function test_callback(results, status) {
     for (; i < results.length && i < 6; i++) {
         (function(i) {
             var place = results[i];
-            console.log(place.formatted_address);
             var a_pi = document.getElementById("a_p"+i);
             var a_namei = document.getElementById("a_name"+i);
             var mapi = document.getElementById("map"+i);
