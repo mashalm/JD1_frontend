@@ -44,4 +44,4 @@ ssh -i /path/to/pem/file ubuntu@54.218.174.22
 
 the same commands to run locally work here as well.
 
-Navigate to [54.218.174.22:3000](http://54.218.174.22) to reach the site
+Navigate to [54.218.174.22:3000](http://54.218.174.22:3000) to reach the site
