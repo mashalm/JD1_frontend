@@ -1,7 +1,3 @@
-#Release Notes
-
-
-
 # Install Guide:
 
 This guide requires node.js and npm to be installed already. If you need to download these, you can do so through the [direct download page](https://nodejs.org/en/download), or with a version manager such as [nvm](https://github.com/creationix/nvm) ([nvm-windows](https://github.com/coreybutler/nvm-windows) for PC).
@@ -64,3 +60,25 @@ export AWS_SECRET_ACCESS_KEY=value_provided
 ```
 
 We recommend adding these commands to your .bashrc. This will save you from having to type the above in every new shell.
+
+---
+
+
+## Release Notes:
+v1.0 - April 24th, 2017
+
+Software Features:
+- Puretone Test with increasing volumes
+- Speech recognition test with female voice
+- Find an audiologist based on zipcode
+- Sign up and login
+- Save test results
+- Send test results
+
+Known bugs and limitations:
+- Only 200 emails allowable per month (per emailJS's free tier)
+- There is a bug with displaying past scores, where some of the saved results do not get graphed properly
+
+Fixes:
+- Fixed the login check issue from before (where some pages weren't displaying the logged in state)
+- Fixed saving scores to do so automatically if the user is logged in
