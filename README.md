@@ -50,4 +50,4 @@ npm install
 npm run deploy
 ```
 
-Navigate to [54.218.174.22:3000](http://54.218.174.22:3000) to reach the site
+Navigate to [54.218.174.22:3000](http://54.218.174.22:3000) (or the new IP if it's changed) to reach the site
