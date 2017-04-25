@@ -48,6 +48,8 @@ npm run deploy
 
 Navigate to [54.218.174.22:3000](http://54.218.174.22:3000) (or the new IP if it's changed) to reach the site.
 
+# Troubleshooting
+
 If you encounter authentication errors while trying to perform database operations like register a new user, your AWS credentials may not be properly saved.
 
 Make sure the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are populated with the correct values, and stored as environment variables.
