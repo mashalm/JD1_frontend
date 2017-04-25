@@ -7,6 +7,7 @@
     "ssh": "ssh -i ~/importteamname.pem ubuntu@54.191.9.27",
     "start": "npm run run.server",
     "ds": "npm run debug.server",
+    "deploy": "node_modules/pm2/bin/pm2 start app/server.js" ,
     "run.server": "./node_modules/nodemon/bin/nodemon.js  app/server.js",
     "debug.server": "node --inspect server/app/server.js"
   },
